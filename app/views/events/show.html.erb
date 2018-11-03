@@ -1,0 +1,40 @@
+<% content_for :meta_title, "#{@event.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @event.normal_description %>
+<% content_for :meta_image, cl_image_path(@event.photos) %>
+
+<div class="carousel">
+  <img class="img-height-carousel" src="<%= @event.photos.first %>" alt="party">
+  <img class="img-height-carousel" src="<%= @event.photos.last %>" alt="party">
+</div>
+
+<!-- ============== END CAROUSEL ============== -->
+<div class="container">
+  <h2><%= @event.name %></h2>
+  <% if @event.votes.present? %>
+    <div class="average-note">
+      <% 5.times do |i| %>
+        <i class="far fa-star <%= @event.average_note >= i + 1 ? 'full' : '' %>"></i>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="show-xpn-desc">
+    <%= @event.explained_description %>
+  </div>
+
+  <div class="show-xpn-desc">
+    <%= link_to "https://www.google.fr/maps/place/#{@event.address}", target: '_blank', class: 'address-link' do %>
+      <i class="fas fa-map-marker-alt"></i> <%= @event.address %>
+    <% end %>
+  </div>
+
+  <div class="show-nrm-desc">
+    <%= @event.normal_description %>
+  </div>
+
+  <div class='event-map' data-lat="<%= @event.latitude %>" data-lng="<%= @event.longitude %>" data-icon="<%= @event.icon %>"></div>
+
+  <div>
+    <a href="<%= new_event_vote_path(@event) %>" class="btn-wildcity btn-wildcity-secondary">Add Review</a>
+  </div>
+</div>
+

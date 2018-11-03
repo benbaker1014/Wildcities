@@ -1,0 +1,34 @@
+#map {
+  z-index: -1;
+  margin-top: 70px;
+}
+
+.img-event {
+  height: 120px !important;
+  object-fit: cover;
+}
+
+.event-contain {
+  padding-left: 0 !important;
+}
+
+.name-event {
+  font-size: 20px;
+}
+
+.row-event {
+  border-top: 1px solid #101010;
+  position: relative;
+}
+
+.event-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.row-event:hover {
+  opacity: 0.7;
+}
